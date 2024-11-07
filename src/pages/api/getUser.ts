@@ -8,7 +8,8 @@ export default async function getAllUser(req: NextApiRequest, res: NextApiRespon
                 select:{
                     id:true,
                     name: true,
-                    email: true
+                    email: true,
+                    createdAt: true
                 }
             })
             return res.status(200).json(user)
