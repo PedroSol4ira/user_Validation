@@ -6,6 +6,7 @@ export default async function getAllUser(req: NextApiRequest, res: NextApiRespon
         try {
             const user = await prisma.user.findMany({
                 select:{
+                    id:true,
                     name: true,
                     email: true
                 }
