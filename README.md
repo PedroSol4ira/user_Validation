@@ -1,40 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+user_Validation
+Sobre o Projeto
 
-## Getting Started
+Este projeto é uma aplicação CRUD que permite criar, ler, atualizar e deletar dados de usuários. É construída usando Next.js para o frontend e backend, com Prisma para o ORM e TypeScript para maior segurança de tipos. O propósito deste projeto é fornecer uma base sólida para aplicações web usando tecnologias modernas.
+Tecnologias Utilizadas
 
-First, run the development server:
+    Next.js - Framework React para desenvolvimento web
+    React - Biblioteca para construção de interfaces de usuário
+    Prisma - ORM para interagir com o banco de dados
+    TypeScript - Superset de JavaScript para segurança de tipos
+    MySQL (PHPMyAdmin) - Banco de dados
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para configurar e executar o projeto localmente, siga os passos abaixo:
+Clone o repositório
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+ 
+    git clone https://github.com/PedroSol4ira/user_Validation.git
+    cd user_Validation
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Instale as dependências:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    npm install
+        
 
-## Learn More
+Configure as variáveis de ambiente. Criando um arquivo .env na raiz do projeto com os valores necessários:
 
-To learn more about Next.js, take a look at the following resources:
+    DATABASE_URL=SuaURLdoBancoDeDados
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Configure o Prisma e gere os arquivos necessários para o banco de dados:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    $ npx prisma migrate dev --name init
 
-## Deploy on Vercel
+Inicie o servidor de desenvolvimento:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+  O projeto estará disponível em http://localhost:3000.
+
+Uso do Projeto
+
+Depois de seguir os passos acima, você verá uma tela de cadastro de usuário com os seguintes campos:
+
+    Nome: Armazena o nome do usuário.
+    Email: Armazena o email do usuário. Este campo é único, então não permite dois emails iguais.
+    Senha: Armazena a senha do usuário.
+    Confirmação de senha: Valida que a senha coincide. Caso contrário, um toast de erro será exibido.
+
+Após preencher corretamente todos os campos e clicar em "Criar Conta", o usuário será registrado no banco de dados.
+
+Logo abaixo, há um botão azul chamado "Gerenciamento de Contas" que redireciona para uma página onde:
+
+    Uma tabela exibe todos os usuários cadastrados (exceto as senhas).
+    É possível editar ou excluir cada usuário.
+    A tabela exibe também a data de criação do usuário.
+
+Licença
+
+Este projeto está licenciado sob a MIT License.
